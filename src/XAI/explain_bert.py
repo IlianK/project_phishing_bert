@@ -5,6 +5,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from captum.attr import LayerIntegratedGradients
 import pandas as pd 
 
+
 def load_model(model_folder, device):
     tokenizer = AutoTokenizer.from_pretrained(model_folder)
     model = AutoModelForSequenceClassification.from_pretrained(model_folder).to(device).eval()

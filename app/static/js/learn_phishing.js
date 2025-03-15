@@ -4,6 +4,7 @@
     const totalEmails = 10;
     let currentLanguage = 'en';
   
+    
     // Fetch and display (by index)
     const fetchEmail = (index) => {
       clearEmailDisplay();
@@ -26,6 +27,7 @@
         })
         .catch(error => console.error('Error fetching email:', error));
     };
+
   
     // Tokenize text into clickable parts
     const tokenize = (text) => {
@@ -35,6 +37,7 @@
         .join(' ');
     };
   
+
     // Init click events email tokens in box
     const initializeEmailBoxClick = () => {
       const emailBox = document.querySelector('.email-box');
@@ -47,6 +50,7 @@
         }
       });
     };
+
   
     // Update state of Check button
     const updateCheckButtonState = () => {
@@ -55,6 +59,7 @@
       const checkbox = document.getElementById('mark-legit');
       checkButton.disabled = !(highlightedTokens.length > 0 || checkbox.checked);
     };
+
   
     // Update the navigation (prev/next)
     const updateNavigationButtons = () => {
@@ -62,6 +67,7 @@
       document.getElementById('next-email').disabled = (emailIndex >= totalEmails - 1);
     };
   
+
     // Clear email display and results
     const clearEmailDisplay = () => {
       document.getElementById('lime-visual').innerHTML = "";
@@ -69,6 +75,7 @@
       document.getElementById('result-message').style.display = 'none';
       document.getElementById('result-message').textContent = '';
     };
+
   
     // Reset checkbox and remove highlighted tokens
     const resetSelections = () => {
@@ -79,11 +86,13 @@
       document.getElementById('confidence-score').textContent = "";
       document.getElementById('lime-visual').innerHTML = "";
     };
+
   
     // Disable button by ID
     const disableButton = (id) => {
       document.getElementById(id).disabled = true;
     };
+
   
     // Handle click on Check button
     const handleCheckEmail = () => {
@@ -164,6 +173,7 @@
         navButtons.style.display = 'flex';
       }
     };
+
   
     // Switch language and refresh 
     const handleLanguageSwitch = (event) => {
@@ -190,6 +200,7 @@
         .catch(err => console.error('Error switching language:', err));
     };
   
+
     // Init event listeners 
     const initEventListeners = () => {
       document.getElementById('mark-legit').addEventListener('change', () => {
@@ -229,6 +240,7 @@
       document.getElementById('language-switch').addEventListener('change', handleLanguageSwitch);
     };
   
+
     // Init setup
     const init = () => {
         updateNavigationButtons();
