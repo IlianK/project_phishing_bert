@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Phishing</title>
+  <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="stylesheet" href="/static/css/learn_phishing.css">
+  <script src="/static/js/learn_phishing.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="/">Analyze Email</a>
+      <a href="/learn_phishing">Test Yourself</a>
+    </nav>
+  </header>
+
+  <main>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+      <span>English</span>
+      <label class="switch">
+        <input type="checkbox" id="language-switch">
+        <span class="slider round"></span>
+      </label>
+      <span>German</span>
+    </div>
+
+    <div id="learn-container">
+      <form id="email-form">
+        <div id="info-box" class="info-box-visible">
+          <h3>Detect The Phishing Emails</h3>
+          <div id="instructions-en">
+            <p>
+              The goal is to identify phishing emails based solely on the text content—not by the formatting or visual appearance.
+              Phishing emails can often mimic legitimate ones by using professional-looking designs,
+              so focus on recognizing suspicious words, phrases, or patterns in the subject and body of the email.
+            </p>
+            <h4>Instructions:</h4>
+            <ul>
+              <li>If the email seems legitimate, check the box to mark it as safe.</li>
+              <li>If you suspect the email is phishing, look for suspicious words in the subject and body. Click on any words that stand out.</li>
+              <li>After selecting suspicious words, click "Check" to see if your choices are correct.</li>
+              <li>Use the "Previous" and "Next" buttons to navigate through the email samples.</li>
+              <li>The emails have also been analyzed by a BERT model fine-tuned on phishing emails.
+                After clicking 'Check' you will see what words the model identified as suspicious using the XAI method LIME.</li>
+              <li>Click "Continue" to view the sample emails.</li>
+            </ul>
+          </div>
+
+          <div id="instructions-de" style="display: none;">
+            <p>
+              Das Ziel ist es, Phishing-E-Mails ausschließlich anhand des Textinhalts zu identifizieren –
+              nicht anhand der Formatierung oder des visuellen Erscheinungsbilds.
+              Phishing-E-Mails können legitime E-Mails nachahmen,
+              daher sollten Sie sich auf verdächtige Wörter, Phrasen oder Muster im Betreff und Text konzentrieren.
+            </p>
+            <h4>Anleitung:</h4>
+            <ul>
+              <li>Wenn die E-Mail legitim erscheint, aktivieren Sie das Kästchen, um sie als sicher zu markieren.</li>
+              <li>Wenn Sie vermuten, dass es sich um eine Phishing-E-Mail handelt, suchen Sie nach verdächtigen Wörtern im Betreff und Text.
+                Klicken Sie auf die Wörter, die Ihnen verdächtig erscheinen.</li>
+              <li>Nachdem Sie verdächtige Wörter ausgewählt haben, klicken Sie auf "Überprüfen", um zu sehen, ob Ihre Auswahl korrekt ist.</li>
+              <li>Verwenden Sie die Schaltflächen "Zurück" und "Weiter", um durch die E-Mail-Beispiele zu navigieren.</li>
+              <li>Die E-Mails wurden auch von einem BERT-Modell analysiert, das auf Phishing-E-Mails trainiert wurde.
+                Nach dem Klicken auf "Überprüfen" sehen Sie, welche Wörter das Modell als verdächtig identifiziert hat,
+                indem die XAI-Methode LIME verwendet wird.</li>
+              <li>Klicken Sie auf "Weiter", um die Beispiel-E-Mails anzuzeigen.</li>
+            </ul>
+          </div>
+          <button type="button" id="continue-btn">Continue</button>
+        </div>
+
+        <div id="nav-buttons" class="nav-buttons" style="display:none;">
+          <div class="left-buttons">
+            <button type="button" id="prev-email">Previous</button>
+            <button type="button" id="next-email">Next</button>
+          </div>
+          <div class="right-buttons">
+            <button type="button" id="check-email" disabled>Check</button>
+            <div id="info-icon" class="info-icon" style="display: none;">
+              <span class="info-circle" title="Info">i</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="email-content" style="display:none;">
+          <div class="email-box">
+            <input type="checkbox" id="mark-legit">
+            <label for="mark-legit" id="mark-legit-label">Legit?</label>
+            <h3 id="email-subject" class="tokenizable">[Subject]: <span></span></h3>
+            <p id="email-body" class="tokenizable"></p>
+          </div>
+          <div id="result-message" style="display:none; font-size: 18px; font-weight: bold; margin-top: 20px;"></div>
+        </div>
+
+        <div id="results-placeholder" style="display:none;">
+          <h3>Results from BERT and XAI Analysis:</h3>
+          <p id="prediction-result"></p>
+          <h4>LIME Explanation:</h4>
+          <div id="lime-visual"></div>
+          <p id="highlighted-words-list" style="margin-top: 10px;"></p>
+        </div>
+
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>
