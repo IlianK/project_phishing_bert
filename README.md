@@ -59,7 +59,7 @@ pip install -r requirements.txt
 Download the models from the following [Google Drive link](https://drive.google.com/file/d/1zMR88hDkT9qJZwvL5cewcMQqdDn5v2ZX/view?usp=sharing) and place the folder in the root directory.
 
 
-### **4. Run app.py**
+### **5. Run app.py**
 ```
 cd path/to/project/root
 python app/app.py
@@ -71,7 +71,7 @@ After running app.py, the local development server will start, typically accessi
   This page lets you input a subject and body. By clicking Analyze, the predicted label (Phishing/Legit), the confidence score, and the LIME explanation are shown.
 
 - **Test Yourself (right)**  
-  On this page, sample emails are shown. You can guess whether it’s phishing or legitimate, and then see how the model classified it — along with a token-level explanation showing which words were most influential. The samples can be shown in English and German (the respective German / English BERT model was used for the predictions). The instructions can be looked at at any time.
+  On this page, sample emails are shown. You can guess whether it’s phishing or legitimate, and then see how the model classified it — along with a token-level explanation showing which words were most influential. The samples can be shown in English and German (the respective German / English BERT model was used for the predictions). The instructions can be looked at at any time, by clicking on the information icon (i).
 
 <div style="display: flex; justify-content: center; gap: 10px;">
     <img src="images/analyze_site.png" alt="Analyze Site" width="45%">
