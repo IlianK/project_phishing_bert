@@ -31,7 +31,7 @@ explanations_data = {}
 def load_explanations(lang="en"):
     global explanations_data
     if lang == 'de':
-        explanations_json_path = dpr.path.app.static.json.german_explanations_json
+        explanations_json_path = dpr.path.app.static.json.own_german_explanations_json # german_explanations_json # german_explanations_json
     else:
         explanations_json_path = dpr.path.app.static.json.english_explanations_json
     explanations_data = explain_bert.load_explanations(explanations_json_path)
@@ -39,7 +39,6 @@ def load_explanations(lang="en"):
 load_explanations("en")
 
 def get_explanation_entry(email_index):
-    """Return the explanation entry for the given email index, or None if invalid."""
     if 0 <= email_index < len(explanations_data):
         return explanations_data[email_index]
     return None
